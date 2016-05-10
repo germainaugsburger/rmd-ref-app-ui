@@ -23,7 +23,7 @@ define(['angular',
 
         // Since it's difficult to set up web socket proxying, we'll just get the web socket URL here in the browser for now:
         PredixLiveDataService.getWsUrl().then(function(urlData) {
-            $scope.wsUrl = urlData.wsUrl;
+            $scope.wsUrl = urlData.wsUrl + '/livestream';
         }, function (msg) {
             $log.error(msg);
         });
@@ -33,9 +33,9 @@ define(['angular',
         $scope.getPickerOptionsFromAsset = function (asset) {
             var pickerOptions = [];
 
-            if (asset.assetMeter) {
-                for(var key in asset.assetMeter) {
-                    var m = asset.assetMeter[key];
+            if (asset.meters) {
+                for(var key in asset.meters) {
+                    var m = asset.meters[key];
                     var option = {
                         sourceTagId: m.sourceTagId,
                         meterUri: m.uri,

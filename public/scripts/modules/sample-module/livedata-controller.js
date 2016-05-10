@@ -4,7 +4,7 @@ define(['angular', './sample-module'], function(angular, sampleModule) {
 		function($scope, $http, PredixLiveDataService) {
 	        PredixLiveDataService.getWsUrl().then(function(urlData) {
 	            $scope.context = {};
-	            $scope.wsUrl = urlData.wsUrl;
+				$scope.wsUrl = urlData.wsUrl + '/livestream';
 	            // console.log('scope.context.wsUrl: ' + $scope.context.wsUrl);
 	            $scope.context.pickerOptions =
 					[
